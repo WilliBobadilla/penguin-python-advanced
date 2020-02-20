@@ -40,9 +40,12 @@ def lectura():
             print(f'procesado {line_count} lineas')
             lista_nombre.append(row["Nombre"])
             lista_apellido.append(row["Apellido"])
+            string= " ".join(lista_apellido )
     except FileNotFoundError: # manejo el error
         print("archivo no encontrado")
-    return "  <h1> Nombre, Apellido</h1> " + str(lista_nombre)
+        return  "NO HAY ARCHIVO"
+    
+    return string
     
 
 
