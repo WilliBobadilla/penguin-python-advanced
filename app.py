@@ -31,6 +31,7 @@ def lectura():
         with open('datos_nuevos.csv', mode='r') as csv_file:
             csv_reader = csv.DictReader(csv_file)
             line_count = 0
+            print("entre aqui en el with")
             for row in csv_reader:
                 if line_count == 0:
                     line_count += 1
@@ -39,7 +40,7 @@ def lectura():
             print("lineas:",line_count)
             lista_nombre.append(row["Nombre"])
             lista_apellido.append(row["Apellido"])
-            string= " ".join(lista_apellido )
+            #string= " ".join(lista_apellido )
     except FileNotFoundError: # manejo el error
         print("archivo no encontrado")
         return  "NO HAY ARCHIVO"
