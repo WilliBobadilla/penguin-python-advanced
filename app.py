@@ -56,7 +56,8 @@ def formexample():
     if request.method == 'POST':
         nombre = request.form["nombre"]
         apellido=request.form["apellido"]
-        with open("datos_nuevos.csv","a+") as data_temp_csv:
+        print("este es el post", nombre,apellido )
+        with open("datos_nuevos.csv","a") as data_temp_csv:
             # agregar lo de leer si es que ya esta escrito open
             # la cabecera, la posible solucion es de abrir el 
             #archivo y verificar si es que ya esta o no 
