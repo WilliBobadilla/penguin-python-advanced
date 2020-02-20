@@ -33,11 +33,10 @@ def lectura():
             line_count = 0
             for row in csv_reader:
                 if line_count == 0:
-                    print(f' {", ".join(row)}')
                     line_count += 1
-                print(f'\t{row["Nombre"]} es {row["Apellido"]}')
+                print(row["Nombre"], row["Apellido"])
                 line_count += 1
-            print(f'procesado {line_count} lineas')
+            print("lineas:",line_count)
             lista_nombre.append(row["Nombre"])
             lista_apellido.append(row["Apellido"])
             string= " ".join(lista_apellido )
