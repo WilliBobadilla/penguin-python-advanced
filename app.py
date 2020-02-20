@@ -9,6 +9,18 @@ app = Flask(__name__) #create the Flask app
 @app.route('/')
 def query_example():
     return 'Probandooooooo'
+@app.route('/crear')
+def crear():
+    try:
+        with open('datos_nuevos.csv', mode='r') as csv_file:
+            nombre_columnas=['Nombre','Apellido']
+            writer=csv.DictWriter(csv_file, fieldnames=nombre_columnas )
+    except FileNotFoundError:
+        return "archivo no encontrado"
+    return "creado cabecera con exito"
+
+
+
 
 @app.route('/nombres')
 def lectura():
@@ -22,11 +34,11 @@ def lectura():
                 if line_count == 0:
                     print(f' {", ".join(row)}')
                     line_count += 1
-                print(f'\t{row["temperatura"]} es {row["fecha"]}')
+                print(f'\t{row["Nombre"]} es {row["Apellido"]}')
                 line_count += 1
             print(f'procesado {line_count} lineas')
-            lista_nombre.append(row["temperatura"])
-            lista_apellido.append(row["fecha"])
+            lista_nombre.append(row["Nombre"])
+            lista_apellido.append(row["Apellido"])
     except FileNotFoundError: # manejo el error
         print("archivo no encontrado")
     return "  <h1> Nombre, Apellido</h1> " + str(lista_nombre)
