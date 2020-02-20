@@ -1,6 +1,6 @@
 #app.py
 
-from flask import Flask, request #import main Flask class and request object
+from flask import Flask, request , render_template #import main Flask class and request object
 
 
 import csv 
@@ -32,21 +32,25 @@ def lectura():
             csv_reader = csv.DictReader(csv_file)
             line_count = 0
             print("entre aqui en el with")
+            print(csv_reader)
             for row in csv_reader:
                 if line_count == 0:
                     line_count += 1
                 print(row["Nombre"], " ----" ,row["Apellido"],"\n" ,"\n")
                 line_count += 1
             print("lineas:",line_count)
-            lista_nombre.append(row["Nombre"])
-            lista_apellido.append(row["Apellido"])
+            lista_nombre.append(str(row["Nombre"]) + str(row["Apellido"]))
+        
             print("el tipo es", type(lista_nombre),"la li es:", lista_nombre)
             #string= " ".join(lista_apellido )
     except FileNotFoundError: # manejo el error
         print("archivo no encontrado")
         return  "NO HAY ARCHIVO"
     
-    return "tenemos nombres almacenados en el archivoooooo!"
+    dic= { "Nombres":lista_nombre 
+    
+    }
+    return render_template("alumnos.html", datos=dic)
     
 
 
