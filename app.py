@@ -35,17 +35,18 @@ def lectura():
             for row in csv_reader:
                 if line_count == 0:
                     line_count += 1
-                print(row["Nombre"], row["Apellido"])
+                print(row["Nombre"], " ----" ,row["Apellido"] )
                 line_count += 1
             print("lineas:",line_count)
             lista_nombre.append(row["Nombre"])
             lista_apellido.append(row["Apellido"])
+            print("el tipo es", type(lista_nombre),"la li es:", lista_nombre)
             #string= " ".join(lista_apellido )
     except FileNotFoundError: # manejo el error
         print("archivo no encontrado")
         return  "NO HAY ARCHIVO"
     
-    return string
+    return "tenemos nombres almacenados en el archivoooooo!"
     
 
 
