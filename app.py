@@ -35,7 +35,7 @@ def lectura():
             for row in csv_reader:
                 if line_count == 0:
                     line_count += 1
-                print(row["Nombre"], " ----" ,row["Apellido"] )
+                print(row["Nombre"], " ----" ,row["Apellido"],"\n" ,"\n")
                 line_count += 1
             print("lineas:",line_count)
             lista_nombre.append(row["Nombre"])
