@@ -47,7 +47,7 @@ def lectura():
 
 
 
-@app.route('/form-example',methods = ['POST'])
+@app.route('/form-example',methods = ['POST','GET'])
 def formexample():
     if request.method == 'POST':
         nombre = request.form["nombre"]
