@@ -10,6 +10,30 @@ app = Flask(__name__) #create the Flask app
 def query_example():
     return 'Probandooooooo'
 
+@app.route('/nombres')
+def lectura():
+    try: 
+        lista_nombre=[]
+        lista_apellido=[]
+        with open('datos_nuevos.csv', mode='r') as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            line_count = 0
+            for row in csv_reader:
+                if line_count == 0:
+                    print(f' {", ".join(row)}')
+                    line_count += 1
+                print(f'\t{row["temperatura"]} es {row["fecha"]}')
+                line_count += 1
+            print(f'procesado {line_count} lineas')
+            lista_nombre.append(row["temperatura"])
+            lista_apellido.append(row["fecha"])
+    except FileNotFoundError: # manejo el error
+        print("archivo no encontrado")
+    return "  <h1> Nombre, Apellido</h1> " + str(lista_nombre)
+    
+
+
+
 @app.route('/form-example',methods = ['POST'])
 def formexample():
     if request.method == 'POST':
