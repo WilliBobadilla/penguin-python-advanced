@@ -15,6 +15,7 @@ def crear():
         with open('datos_nuevos.csv', mode='r') as csv_file:
             nombre_columnas=['Nombre','Apellido']
             writer=csv.DictWriter(csv_file, fieldnames=nombre_columnas )
+            writer.writeheader() #escribimos la cabecera
     except FileNotFoundError:
         return "archivo no encontrado"
     return "creado cabecera con exito"
@@ -51,17 +52,20 @@ def formexample():
     if request.method == 'POST':
         nombre = request.form["nombre"]
         apellido=request.form["apellido"]
-    with open("datos_nuevos.csv","a+") as data_temp_csv:
-        # agregar lo de leer si es que ya esta escrito open
-        # la cabecera, la posible solucion es de abrir el 
-        #archivo y verificar si es que ya esta o no 
-        nombrefilas= ["Nombre","Apellido"]  # nombre de los campos
-        writer=csv.DictWriter(data_temp_csv,fieldnames=nombrefilas) # creamos un objeto writer sobre el archivo, y le especificamos el nombre de kis campos
-        #writer.writeheader() #escribimos la primera
+        with open("datos_nuevos.csv","a+") as data_temp_csv:
+            # agregar lo de leer si es que ya esta escrito open
+            # la cabecera, la posible solucion es de abrir el 
+            #archivo y verificar si es que ya esta o no 
+            nombrefilas= ["Nombre","Apellido"]  # nombre de los campos
+            writer=csv.DictWriter(data_temp_csv,fieldnames=nombrefilas) # creamos un objeto writer sobre el archivo, y le especificamos el nombre de kis campos
+            #writer.writeheader() #escribimos la primera
 
-        writer.writerow({'Nombre' : nombre, 'Apellido':apellido})
+            writer.writerow({'Nombre' : nombre, 'Apellido':apellido})
 
-    return '<h2> Recibido!  </h2>'
+        return '<h2> Recibido!  </h2>'
+    else:
+        return "no recibi nada"
+        
 
 @app.route('/json')
 def jsonexample():
