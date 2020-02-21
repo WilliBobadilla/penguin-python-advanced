@@ -38,8 +38,9 @@ def lectura():
                     line_count += 1
                 print(row["Nombre"], " ----" ,row["Apellido"],"\n" ,"\n")
                 line_count += 1
+                lista_nombre.append(str(row["Nombre"]) + str(row["Apellido"]))
             print("lineas:",line_count)
-            lista_nombre.append(str(row["Nombre"]) + str(row["Apellido"]))
+            
         
             print("el tipo es", type(lista_nombre),"la li es:", lista_nombre)
             #string= " ".join(lista_apellido )
@@ -48,7 +49,7 @@ def lectura():
         return  "NO HAY ARCHIVO"
     
     dic= { "Nombres":lista_nombre 
-    
+
     }
     return render_template("alumnos.html", datos=dic)
     
