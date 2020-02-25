@@ -69,7 +69,7 @@ def formexample():
             writer=csv.DictWriter(data_temp_csv,fieldnames=nombrefilas) # creamos un objeto writer sobre el archivo, y le especificamos el nombre de kis campos
             #writer.writeheader() #escribimos la primera
 
-            writer.writerow({'Nombre' : nombre, 'Apellido':apellido})
+            writer.writerow({'Nombre' : '\n' + nombre, 'Apellido':apellido})
 
         return '<h2> Recibido!  </h2>'
     else:
