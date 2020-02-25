@@ -1,0 +1,62 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+h1{
+    font-size: 30px;
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 15px;
+    
+  }
+
+body{
+  background: linear-gradient(90deg, #2b5876, #4e4376); 
+  font-family: 'Roboto', sans-serif;
+}
+section{
+  margin: 70px;
+}
+ul{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 300;
+    text-align: left;
+    margin-bottom: 15px;
+    list-style: none;
+    padding: 0;
+
+}
+
+li {
+    padding-left: 1.3em;
+  }
+li:before {
+    content: "\f058"; /* Unicode de FontAwesome  */
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: -1.3em; 
+    width: 1.3em; 
+  }
+.con-amor {
+    margin-top: 40px;
+    padding: 10px;
+    clear: left;
+    text-align: center;
+    font-size: 16pxpx;
+    font-family: arial;
+    color: #fff;
+  }
+  .con-amor i {
+    font-style: normal;
+    color: #F50057;
+    font-size: 20px;
+    position: relative;
+    top: 2px;
+  }
+  .con-amor a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .con-amor a:hover {
+    text-decoration: underline;
+  }
+  
