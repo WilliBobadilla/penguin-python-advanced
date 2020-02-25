@@ -9,6 +9,8 @@ app = Flask(__name__) #create the Flask app
 @app.route('/')
 def query_example():
     return 'Probandooooooo'
+
+
 @app.route('/crear')
 def crear():
     try:
@@ -21,13 +23,10 @@ def crear():
     return "creado cabecera con exito"
 
 
-
-
 @app.route('/nombres')
 def lectura():
     try: 
         lista_nombre=[]
-        lista_apellido=[]
         with open('datos_nuevos.csv', mode='r') as csv_file:
             csv_reader = csv.DictReader(csv_file)
             line_count = 0
