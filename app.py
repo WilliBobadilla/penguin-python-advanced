@@ -8,12 +8,12 @@ app = Flask(__name__) #create the Flask app
 
 @app.route('/')
 def query_example():
-    return 'Probandooooooo'
+    return 'Probandooooooo este es el ultimo dia'
 
 
 @app.route('/crear')
 def crear():
-    try:
+    try: 
         with open('datos_nuevos.csv', mode='r') as csv_file:
             nombre_columnas=['Nombre','Apellido']
             writer=csv.DictWriter(csv_file, fieldnames=nombre_columnas )
